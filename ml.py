@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Sep 15 12:46:03 2024
+Created on Sun Sep 15 12:46:03 2026
 
 @author: kexib
 """
@@ -15,7 +15,7 @@ def inference(data: list):
                                            'loan_int_rate', 'term_years', 'cred_hist_length', 'start_cred_history',
                                            'home_ownership', 'loan_intent', 'loan_grade', 'historical_default'])
 
-    loaded_model = CatBoostClassifier().load_model("src/model.pcl")
+    loaded_model = CatBoostClassifier().load_model("model.pcl")
     probabilities = loaded_model.predict_proba(data)  # Получаем вероятности
     y_pr = probabilities.argmax(axis=1)  # Получаем предсказанные классы
     return y_pr, probabilities  # Возвращаем и классы, и вероятности
